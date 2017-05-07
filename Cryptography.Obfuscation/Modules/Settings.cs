@@ -5,12 +5,32 @@ using Cryptography.Obfuscation.DataStructure;
 
 namespace Cryptography.Obfuscation.Modules
 {
+
+    /// <summary>
+    ///     Provides global settings for Obfuscation.
+    /// </summary>
     public static class Settings
     {
+        /// <summary>
+        ///     Read-only character dictionary,
+        ///     Generated from AllCharacterSet - DummyCharacterSet.
+        /// </summary>
         public static readonly UniqueDictionary<int, char> ValidCharacterSet;
+
+        /// <summary>
+        ///     Read-only character count dictionary,
+        ///     Which denotes the base number to use in number to character conversion.
+        /// </summary>
         public static readonly int Base;
 
+        /// <summary>
+        ///     Read-only minimum length of the generated sequence.
+        /// </summary>
         public readonly static int MinimumLength = 8;
+
+        /// <summary>
+        ///     Read-only character set that represents all the characters which can be used for conversion.
+        /// </summary>
         public readonly static char[] AllCharacterSet =
         {
             'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
@@ -18,6 +38,9 @@ namespace Cryptography.Obfuscation.Modules
             '0','1','2','3','4','5','6','7','8','9'
         };
 
+        /// <summary>
+        ///     Read-only character set that represents dummy values.
+        /// </summary>
         public readonly static char[] DummyCharacterSet =
         {
             'A','D','M','N','Q','V','Z','c','d','g','j','k','n','q','r','s','u','x','z','2','4','7'
@@ -44,12 +67,27 @@ namespace Cryptography.Obfuscation.Modules
             Base = ValidCharacterSet.Count;
         }
 
-        public static string AddDummyCharacters(string key, ObfuscationStrategy strategy, int seed) {
-            if (string.IsNullOrEmpty(key))
-                return key;
+        /// <summary>
+        ///     Given a sequence, add dummy characters based on the strategy and seed data passed.
+        /// </summary>
+        /// <param name="sequence">
+        ///     The base sequence without dummy characters.
+        /// </param>
+        /// <param name="strategy">
+        ///     The strategy to be used.
+        /// </param>
+        /// <param name="seed">
+        ///     The seed value to be used.
+        /// </param>
+        /// <returns>
+        ///     Character sequence with dummy characters merged into it, based on the strategy used.
+        /// </returns>
+        public static string AddDummyCharacters(string sequence, ObfuscationStrategy strategy, int seed) {
+            if (string.IsNullOrEmpty(sequence))
+                return sequence;
 
             var sb = new StringBuilder();
-            sb.Append(key);
+            sb.Append(sequence);
 
             int dummyCharacterIndex = 0;
             while (sb.Length < MinimumLength)
@@ -79,14 +117,23 @@ namespace Cryptography.Obfuscation.Modules
             return sb.ToString();
         }
 
-        public static string RemoveDummyCharacters(string key)
+        /// <summary>
+        ///     Remove dummy characters from the specified sequence.
+        /// </summary>
+        /// <param name="sequence">
+        ///     The character sequence which has dummy characters to be removed.
+        /// </param>
+        /// <returns>
+        ///     The base sequence without dummy characters.
+        /// </returns>
+        public static string RemoveDummyCharacters(string sequence)
         {
             var sb = new StringBuilder();
-            for(int i = 0; i < key.Length; i++)
+            for(int i = 0; i < sequence.Length; i++)
             {
-                bool isDummy = DummyCharacterSet.Contains(key[i]);
+                bool isDummy = DummyCharacterSet.Contains(sequence[i]);
                 if (!isDummy)
-                    sb.Append(key[i]);
+                    sb.Append(sequence[i]);
             }
 
             return sb.ToString();

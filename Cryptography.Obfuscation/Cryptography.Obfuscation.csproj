@@ -7,8 +7,8 @@
     <ProjectGuid>{082E0242-3908-4A94-988E-CEAD8C4C35F5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cryptography.Modules</RootNamespace>
-    <AssemblyName>Cryptography.Modules</AssemblyName>
+    <RootNamespace>Cryptography.Obfuscation</RootNamespace>
+    <AssemblyName>Cryptography.Obfuscation</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -28,6 +28,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Cryptography.Obfuscation.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

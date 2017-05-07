@@ -17,7 +17,7 @@ namespace Cryptography.ConsoleTests
             var obfuscator2 = new Obfuscator();
             obfuscator2.Strategy = ObfuscationStrategy.Randomize;
 
-            for (int i = 0; i <= 1000; i++)
+            for (int i = 0; i <= 100; i++)
             {
                 Console.WriteLine($"{i}\n---------------");
                 Console.WriteLine($"Constant Mode: {obfuscator.Obfuscate(i)}, {obfuscator.Obfuscate(i)}");

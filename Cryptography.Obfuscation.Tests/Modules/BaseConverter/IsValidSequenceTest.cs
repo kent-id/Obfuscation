@@ -4,16 +4,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Cryptography.Obfuscation.Tests.Modules
 {
     [TestClass]
-    public class IsValidStringTest
+    public class IsValidSequenceTest
     {
         [TestMethod]
         public void TestOnEmptyInput()
         {
             string sampleInput = string.Empty;
-            Assert.IsFalse(BaseConverter.IsValidString(sampleInput));
+            Assert.IsFalse(BaseConverter.IsValidSequence(sampleInput));
 
             sampleInput = null;
-            Assert.IsFalse(BaseConverter.IsValidString(sampleInput));
+            Assert.IsFalse(BaseConverter.IsValidSequence(sampleInput));
         }
 
         [TestMethod]
@@ -25,7 +25,7 @@ namespace Cryptography.Obfuscation.Tests.Modules
             for (int i = 0; i < dummyKeys.Length; i++)
             {
                 sampleInput = dummyKeys[i].ToString();
-                Assert.IsFalse(BaseConverter.IsValidString(sampleInput));
+                Assert.IsFalse(BaseConverter.IsValidSequence(sampleInput));
             }
         }
 
@@ -38,7 +38,7 @@ namespace Cryptography.Obfuscation.Tests.Modules
             for (int i = 0; i < validKeys.Count; i++)
             {
                 sampleInput = validKeys.GetFromKey(i).ToString();
-                Assert.IsTrue(BaseConverter.IsValidString(sampleInput));
+                Assert.IsTrue(BaseConverter.IsValidSequence(sampleInput));
             }
         }
     }

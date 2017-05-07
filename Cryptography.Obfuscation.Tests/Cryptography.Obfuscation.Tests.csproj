@@ -56,7 +56,7 @@
     <Compile Include="Modules\BaseConverter\BaseConverterTest.cs" />
     <Compile Include="DataStructure\UniqueDictionaryTest.cs" />
     <Compile Include="Factory\ObfuscatorFactory.cs" />
-    <Compile Include="Modules\BaseConverter\IsValidStringTest.cs" />
+    <Compile Include="Modules\BaseConverter\IsValidSequenceTest.cs" />
     <Compile Include="ObfuscatorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
