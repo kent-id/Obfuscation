@@ -1,5 +1,5 @@
 # Cryptography.Obfuscation
-Obfuscator is a C# library that converts a non-negative integer into 8 character string, generating a result similar to YouTube video id. Put it simply, this library converts a numeric id such as 12 to xVrAndNb and back.
+Obfuscator is a C# library that converts a non-negative integer into *8-character string*, generating a result similar to YouTube video id. Put it simply, this library converts a numeric id such as 127 to xVrAndNb and back.
 
 Preface
 ------
@@ -28,7 +28,10 @@ Generates randomized sequence which will cause the *Obfuscate* function to gener
 ```
   var obfuscator = new Obfuscator();
   obfuscator.Strategy = ObfuscationStrategy.Randomized;
+  
+  // 'randomized' to generate different sequence for the same id.
   string obfuscatedID = obfuscator.Obfuscate(15);
+  string secondObfuscatedID = obfuscator.Obfuscate(15);
   
   // Reverse-process:
   int deobfuscatedID = obfusactor.Deobfuscate(obfuscatedID);
