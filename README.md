@@ -15,7 +15,7 @@ Install-Package Kent.Cryptography.Obfuscation
 Usage
 ------
 ### Basic Example
-Provides unique id <> string mapping which will not change unless Seed value is changed.
+Provides unique *id <> string mapping* which will not change unless Seed value is changed.
 ```
   var obfuscator = new Obfuscator();
   string obfuscatedID = obfuscator.Obfuscate(15);
@@ -25,7 +25,7 @@ Provides unique id <> string mapping which will not change unless Seed value is 
 ```
 
 ### Randomized Mode
-Generates randomized sequence which will cause the Obfuscate function to generate different values even when obfuscating the same id.
+Generates randomized sequence which will cause the *Obfuscate* function to generate different values even when obfuscating the same id.
 ```
   var obfuscator = new Obfuscator();
   obfuscator.Strategy = ObfuscationStrategy.Randomized;
@@ -36,13 +36,13 @@ Generates randomized sequence which will cause the Obfuscate function to generat
 ```
 
 ### Seed Value
-Seed value is like a key, the 'differentiator' that makes id <> string mapping unique to your application. It is highly recommended to set this value rather than depending on the default value set by the application (which is 312).
+Seed value is the 'differentiator' that makes *id <> string mapping* unique to your application. It is highly recommended to set this value rather than depending on the default value set by the library (which is 312).
 ```
   var obfuscator = new Obfuscator();
   obfuscator.Seed = 713;
   string obfuscatedID = obfuscator.Obfuscate(15);
 ```
-**Note**: Minimum seed value is 1 and it's recommended to set this value to varying digits (instead of something like 100), as this will be used in XOR operations. Some example of recommended seed values are 317, 714, 213, etc.
+**Note**: Minimum seed value is 2 and it's recommended to set this value to varying digits (instead of something like 100), as this will be used in XOR operations. Some example of recommended seed values are 317, 714, 213, etc.
 
 License
 ------
