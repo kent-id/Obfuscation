@@ -53,7 +53,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Factory\UniqueDictionaryFactory.cs" />
-    <Compile Include="Modules\BaseConverter\BaseConverterTest.cs" />
+    <Compile Include="Modules\BaseConverter\ObfuscatorHelperTest.cs" />
     <Compile Include="DataStructure\UniqueDictionaryTest.cs" />
     <Compile Include="Factory\ObfuscatorFactory.cs" />
     <Compile Include="Modules\BaseConverter\IsValidSequenceTest.cs" />

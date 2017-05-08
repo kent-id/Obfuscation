@@ -1,13 +1,12 @@
 ﻿using Cryptography.Obfuscation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cryptography.ConsoleTests
 {
+    /// <summary>
+    ///     Console Test Project to do quick tests, for debugging purpose.
+    ///     For Unit Tests, go to Cryptography.Obfuscation.Tests project.
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
@@ -28,6 +27,5 @@ namespace Cryptography.ConsoleTests
             // Prevent console from closing immediately.
             Console.ReadLine();
         }
-        
     }
 }

@@ -63,7 +63,7 @@ namespace Cryptography.Obfuscation
                 throw new InvalidOperationException("Value has to be at least 0.");
 
             var baseValue =  BaseConverter.ConvertToBase(value);
-            return Settings.AddDummyCharacters(baseValue, Strategy, Seed);
+            return ObfuscatorHelper.AddDummyCharacters(baseValue, Strategy, Seed);
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Cryptography.Obfuscation
         /// </returns>
         public int Deobfuscate(string value)
         {
-            var valueWithoutDummyCharacters = Settings.RemoveDummyCharacters(value);
+            var valueWithoutDummyCharacters = ObfuscatorHelper.RemoveDummyCharacters(value);
             return BaseConverter.ConvertFromBase(valueWithoutDummyCharacters);
         }
     }

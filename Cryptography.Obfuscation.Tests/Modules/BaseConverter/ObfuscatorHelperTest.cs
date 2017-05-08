@@ -8,7 +8,7 @@ using System.Text;
 namespace Cryptography.Obfuscation.Tests.Modules
 {
     [TestClass]
-    public class BaseConverterTest
+    public class ObfuscatorHelperTest
     {
         [TestMethod]
         public void TestAddDummyCharactersConstant()
@@ -22,7 +22,7 @@ namespace Cryptography.Obfuscation.Tests.Modules
             /* Perform operation under test with constant strategy, */
             var obfuscatorUnderTest = ObfuscatorFactory.NewInstance;
             int seed = obfuscatorUnderTest.Seed;
-            var testResult = Settings.AddDummyCharacters(validInput, ObfuscationStrategy.Constant, seed);
+            var testResult = ObfuscatorHelper.AddDummyCharacters(validInput, ObfuscationStrategy.Constant, seed);
 
             // Remove all valid characters from result.
             var dummyResult = testResult.ToCharArray().ToList();
@@ -44,7 +44,7 @@ namespace Cryptography.Obfuscation.Tests.Modules
             /* Perform operation under test with randomized strategy, */
             var obfuscatorUnderTest = ObfuscatorFactory.NewInstance;
             int seed = obfuscatorUnderTest.Seed;
-            var testResult = Settings.AddDummyCharacters(validInput, ObfuscationStrategy.Randomize, seed);
+            var testResult = ObfuscatorHelper.AddDummyCharacters(validInput, ObfuscationStrategy.Randomize, seed);
 
             // Remove all valid characters from result.
             var dummyResult = testResult.ToCharArray().ToList();
@@ -73,7 +73,7 @@ namespace Cryptography.Obfuscation.Tests.Modules
 
             // Perform operation under test.
             var obfuscatorUnderTest = ObfuscatorFactory.NewInstance;
-            var testResult = Settings.RemoveDummyCharacters(input);
+            var testResult = ObfuscatorHelper.RemoveDummyCharacters(input);
 
             // Ensure resulting string doesn't contain any dummy characters.
             Assert.IsTrue(testResult.All(x => !dummyCharacters.Contains(x)));

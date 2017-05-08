@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modules\ObfuscatorHelper.cs" />
     <Compile Include="ObfuscationStrategy.cs" />
     <Compile Include="DataStructure\UniqueDictionary.cs" />
     <Compile Include="Obfuscator.cs" />
