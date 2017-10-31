@@ -1,33 +1,30 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 using Cryptography.Obfuscation.Tests.Factory;
 
 namespace Cryptography.Obfuscation.Tests.DataStructure
 {
-    [TestClass]
     public class UniqueDictionaryTest
     {
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [Fact]
         public void TestNoDuplicateKey()
         {
             var classUnderTest = UniqueDictionaryFactory.NewInstance;
 
             classUnderTest.Add(1, 'a');
-            classUnderTest.Add(1, 'b');
+            Assert.Throws<ArgumentException>(() => classUnderTest.Add(1, 'b'));
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [Fact]
         public void TestNoDuplicateValue()
         {
             var classUnderTest = UniqueDictionaryFactory.NewInstance;
 
             classUnderTest.Add(1, 'a');
-            classUnderTest.Add(2, 'a');
+            Assert.Throws<ArgumentException>(() => classUnderTest.Add(2, 'a'));
         }
 
-        [TestMethod]
+        [Fact]
         public void TestGetFromKey()
         {
             var classUnderTest = UniqueDictionaryFactory.NewInstance;
@@ -36,10 +33,10 @@ namespace Cryptography.Obfuscation.Tests.DataStructure
             classUnderTest.Add(2, 'b');
 
             char firstValue = classUnderTest.GetFromKey(1);
-            Assert.AreEqual(firstValue, 'a');
+            Assert.Equal(firstValue, 'a');
         }
 
-        [TestMethod]
+        [Fact]
         public void TestGetFromValue()
         {
             var classUnderTest = UniqueDictionaryFactory.NewInstance;
@@ -48,7 +45,7 @@ namespace Cryptography.Obfuscation.Tests.DataStructure
             classUnderTest.Add(2, 'b');
             
             int secondKey = classUnderTest.GetFromValue('b');
-            Assert.AreEqual(secondKey, 2);
+            Assert.Equal(secondKey, 2);
         }
     }
 }

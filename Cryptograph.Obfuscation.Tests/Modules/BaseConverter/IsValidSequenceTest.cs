@@ -1,22 +1,21 @@
-﻿using Cryptography.Obfuscation.Modules;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
+using Cryptography.Obfuscation.Modules;
 
 namespace Cryptography.Obfuscation.Tests.Modules
 {
-    [TestClass]
     public class IsValidSequenceTest
     {
-        [TestMethod]
+        [Fact]
         public void TestOnEmptyInput()
         {
             string sampleInput = string.Empty;
-            Assert.IsFalse(BaseConverter.IsValidSequence(sampleInput));
+            Assert.False(BaseConverter.IsValidSequence(sampleInput));
 
             sampleInput = null;
-            Assert.IsFalse(BaseConverter.IsValidSequence(sampleInput));
+            Assert.False(BaseConverter.IsValidSequence(sampleInput));
         }
 
-        [TestMethod]
+        [Fact]
         public void TestOnOnlyDummyCharacter()
         {
             var dummyKeys = Settings.DummyCharacterSet;
@@ -25,11 +24,11 @@ namespace Cryptography.Obfuscation.Tests.Modules
             for (int i = 0; i < dummyKeys.Length; i++)
             {
                 sampleInput = dummyKeys[i].ToString();
-                Assert.IsFalse(BaseConverter.IsValidSequence(sampleInput));
+                Assert.False(BaseConverter.IsValidSequence(sampleInput));
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void TestOnOnlyValidCharacter()
         {
             var validKeys = Settings.ValidCharacterSet;
@@ -38,7 +37,7 @@ namespace Cryptography.Obfuscation.Tests.Modules
             for (int i = 0; i < validKeys.Count; i++)
             {
                 sampleInput = validKeys.GetFromKey(i).ToString();
-                Assert.IsTrue(BaseConverter.IsValidSequence(sampleInput));
+                Assert.True(BaseConverter.IsValidSequence(sampleInput));
             }
         }
     }

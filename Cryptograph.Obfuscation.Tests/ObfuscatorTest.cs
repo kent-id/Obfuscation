@@ -1,14 +1,12 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
 using Cryptography.Obfuscation.Tests.Factory;
 using System.Collections.Generic;
 
 namespace Cryptography.Obfuscation.Tests
 {
-    [TestClass]
     public class ObfuscatorTest
     {
-        [TestMethod]
+        [Fact]
         public void EnsureCorrectConversionConstant()
         {
             var classUnderTest = ObfuscatorFactory.NewInstance;
@@ -16,7 +14,7 @@ namespace Cryptography.Obfuscation.Tests
             EnsureCorrectConvertionHelper(classUnderTest);
         }
 
-        [TestMethod]
+        [Fact]
         public void EnsureCorrectConversionRandomized()
         {
             var classUnderTest = ObfuscatorFactory.NewInstance;
@@ -24,7 +22,7 @@ namespace Cryptography.Obfuscation.Tests
             EnsureCorrectConvertionHelper(classUnderTest);
         }
 
-        [TestMethod]
+        [Fact]
         public void EnsureNoCollisionConstant()
         {
             var classUnderTest = ObfuscatorFactory.NewInstance;
@@ -32,7 +30,7 @@ namespace Cryptography.Obfuscation.Tests
             EnsureNoCollisionHelper(classUnderTest);
         }
 
-        [TestMethod]
+        [Fact]
         public void EnsureNoCollisionRandomized()
         {
             var classUnderTest = ObfuscatorFactory.NewInstance;
@@ -50,7 +48,8 @@ namespace Cryptography.Obfuscation.Tests
 
                 if (deobfuscatedValue != i)
                 {
-                    Assert.Fail();
+                    // Assert fails.
+                    Assert.True(false);
                 }
             }
         }
@@ -64,7 +63,8 @@ namespace Cryptography.Obfuscation.Tests
                 // HashSet.Add will return false if element already exists. 
                 if(!obfuscatedResult.Add(obfuscatedValue))
                 {
-                    Assert.Fail();
+                    // Assert fails.
+                    Assert.True(false);
                 }
             }
         }

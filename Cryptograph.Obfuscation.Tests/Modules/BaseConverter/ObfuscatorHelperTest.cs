@@ -1,16 +1,15 @@
-﻿using Cryptography.Obfuscation.Modules;
-using Cryptography.Obfuscation.Tests.Factory;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
 using System;
 using System.Linq;
 using System.Text;
+using Cryptography.Obfuscation.Modules;
+using Cryptography.Obfuscation.Tests.Factory;
 
 namespace Cryptography.Obfuscation.Tests.Modules
 {
-    [TestClass]
     public class ObfuscatorHelperTest
     {
-        [TestMethod]
+        [Fact]
         public void TestAddDummyCharactersConstant()
         {
             var validCharacters = Settings.ValidCharacterSet;
@@ -29,10 +28,10 @@ namespace Cryptography.Obfuscation.Tests.Modules
             dummyResult.RemoveAll(x => validCharacters.ContainsValue(x));
 
             // Ensure result only contains dummy characters.
-            Assert.IsTrue(dummyResult.All(x => dummyCharacters.Contains(x)));
+            Assert.True(dummyResult.All(x => dummyCharacters.Contains(x)));
         }
 
-        [TestMethod]
+        [Fact]
         public void TestAddDummyCharactersRandomized()
         {
             var validCharacters = Settings.ValidCharacterSet;
@@ -51,10 +50,10 @@ namespace Cryptography.Obfuscation.Tests.Modules
             dummyResult.RemoveAll(x => validCharacters.ContainsValue(x));
 
             // Ensure result only contains dummy characters.
-            Assert.IsTrue(dummyResult.All(x => dummyCharacters.Contains(x)));
+            Assert.True(dummyResult.All(x => dummyCharacters.Contains(x)));
         }
 
-        [TestMethod]
+        [Fact]
         public void TestRemoveDummyCharacters()
         {
             var validCharacterSet = Settings.ValidCharacterSet;
@@ -76,7 +75,7 @@ namespace Cryptography.Obfuscation.Tests.Modules
             var testResult = ObfuscatorHelper.RemoveDummyCharacters(input);
 
             // Ensure resulting string doesn't contain any dummy characters.
-            Assert.IsTrue(testResult.All(x => !dummyCharacters.Contains(x)));
+            Assert.True(testResult.All(x => !dummyCharacters.Contains(x)));
         }
     }
 }
