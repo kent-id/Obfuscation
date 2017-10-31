@@ -51,7 +51,7 @@ namespace Cryptography.Obfuscation.Modules
             ValidCharacterSet = new UniqueDictionary<int, char>();
 
             int index = 0;
-            for(int i = 0; i < AllCharacterSet.Length; i++)
+            for (int i = 0; i < AllCharacterSet.Length; i++)
             {
                 // Ignore dummy characters.
                 if (DummyCharacterSet.Contains(AllCharacterSet[i]))

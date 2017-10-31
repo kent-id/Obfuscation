@@ -29,7 +29,7 @@ namespace Cryptography.Obfuscation
             {
                 // Ensure seed value has to be greater than 1,
                 // Otherwise x XOR seed will always be equal to x or x + 1.
-                if(value <= 1)
+                if (value <= 1)
                 {
                     throw new InvalidOperationException("Seed value has to be greater than 0.");
                 }

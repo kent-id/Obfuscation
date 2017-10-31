@@ -46,11 +46,11 @@ namespace Cryptography.Obfuscation.Modules
         public static int ConvertFromBase(string sequence)
         {
             // Return -1 as default value if encrypted string is not valid.
-            if(!IsValidSequence(sequence))
+            if (!IsValidSequence(sequence))
                 return -1;
             
             int result = 0, n = sequence.Length - 1;
-            for(int i = 0; i < sequence.Length; i++, n--)
+            for (int i = 0; i < sequence.Length; i++, n--)
             {
                 int charValue = Settings.ValidCharacterSet.GetFromValue(sequence[i]);
                 int baseValue = (int)Math.Pow(Settings.Base, n);

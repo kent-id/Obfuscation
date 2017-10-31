@@ -88,55 +88,6 @@ namespace Cryptography.Obfuscation.DataStructure
         }
         
         /// <summary>
-        ///     Remove the specified KeyValuePaid from dictionary.
-        /// </summary>
-        /// <param name="key">
-        ///     The key of the KeyValuePair to remove.
-        /// </param>
-        /// <returns>
-        ///     True if key exists, false otherwise.
-        /// </returns>
-        public bool Remove(TKey key)
-        {
-            foreach (var inverseKey in InverseDictionary.Where(kvp => kvp.Value.Equals(key)).ToList())
-            {
-                InverseDictionary.Remove(inverseKey.Key);
-            }
-            return Dictionary.Remove(key);
-        }
-
-        /// <summary>
-        ///     Try to get value from the dictionary using the specified key.
-        /// </summary>
-        /// <param name="key">
-        ///     The item key.
-        /// </param>
-        /// <param name="value">
-        ///     The variable to store the return value in.
-        /// </param>
-        /// <returns>
-        ///     True if key exists, false otherwise.
-        /// </returns>
-        public bool TryGetValue(TKey key, out TValue value)
-        {
-            return Dictionary.TryGetValue(key, out value);
-        }
-
-        /// <summary>
-        ///     Checks whether dictionary contains the specified key.
-        /// </summary>
-        /// <param name="key">
-        ///     The item key.
-        /// </param>
-        /// <returns>
-        ///     True if key exists, false otherwise.
-        /// </returns>
-        public bool ContainsKey(TKey key)
-        {
-            return Dictionary.ContainsKey(key);
-        }
-
-        /// <summary>
         ///     Checks whether dicitonary contains the specified value.
         /// </summary>
         /// <param name="value">
