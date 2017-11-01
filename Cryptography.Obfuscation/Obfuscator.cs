@@ -31,7 +31,7 @@ namespace Cryptography.Obfuscation
                 // Otherwise x XOR seed will always be equal to x or x + 1.
                 if (value <= 1)
                 {
-                    throw new InvalidOperationException("Seed value has to be greater than 0.");
+                    throw new InvalidOperationException("Seed value has to be at least two.");
                 }
 
                 seed = value;
@@ -45,7 +45,7 @@ namespace Cryptography.Obfuscation
         {
             // Set defaults:
             this.Strategy = ObfuscationStrategy.Constant;
-            this.Seed = 312;
+            this.Seed = 113;
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Cryptography.Obfuscation
         public string Obfuscate(int value)
         {
             if (value < 0)
-                throw new InvalidOperationException("Value has to be at least 0.");
+                throw new InvalidOperationException("Negative values are not supported.");
 
             var baseValue =  BaseConverter.ConvertToBase(value);
             return ObfuscatorHelper.AddDummyCharacters(baseValue, Strategy, Seed);

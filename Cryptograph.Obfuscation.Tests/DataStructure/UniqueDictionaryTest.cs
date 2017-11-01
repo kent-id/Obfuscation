@@ -6,46 +6,46 @@ namespace Cryptography.Obfuscation.Tests.DataStructure
 {
     public class UniqueDictionaryTest
     {
-        [Fact]
-        public void TestNoDuplicateKey()
+        [Fact(DisplayName = "Duplicate key should not be allowed in unique dictionary")]
+        public void DuplicateKeyShouldThrowException()
         {
-            var classUnderTest = UniqueDictionaryFactory.NewInstance;
+            var dictionary = UniqueDictionaryFactory.NewInstance;
 
-            classUnderTest.Add(1, 'a');
-            Assert.Throws<ArgumentException>(() => classUnderTest.Add(1, 'b'));
+            dictionary.Add(1, 'a');
+            Assert.Throws<ArgumentException>(() => dictionary.Add(1, 'b'));
         }
 
-        [Fact]
-        public void TestNoDuplicateValue()
+        [Fact(DisplayName = "Duplicate value should not be allowed in unique dictionary")]
+        public void DuplicateValueSHouldThrowExeption()
         {
-            var classUnderTest = UniqueDictionaryFactory.NewInstance;
+            var dictionary = UniqueDictionaryFactory.NewInstance;
 
-            classUnderTest.Add(1, 'a');
-            Assert.Throws<ArgumentException>(() => classUnderTest.Add(2, 'a'));
+            dictionary.Add(1, 'a');
+            Assert.Throws<ArgumentException>(() => dictionary.Add(2, 'a'));
         }
 
-        [Fact]
+        [Fact(DisplayName = "Test for getting value from key")]
         public void TestGetFromKey()
         {
-            var classUnderTest = UniqueDictionaryFactory.NewInstance;
+            var dictionary = UniqueDictionaryFactory.NewInstance;
 
-            classUnderTest.Add(1, 'a');
-            classUnderTest.Add(2, 'b');
+            dictionary.Add(1, 'a');
+            dictionary.Add(2, 'b');
 
-            char firstValue = classUnderTest.GetFromKey(1);
-            Assert.Equal(firstValue, 'a');
+            char firstValue = dictionary.GetFromKey(1);
+            Assert.Equal('a', firstValue);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Test for getting key from value")]
         public void TestGetFromValue()
         {
-            var classUnderTest = UniqueDictionaryFactory.NewInstance;
+            var dictionary = UniqueDictionaryFactory.NewInstance;
 
-            classUnderTest.Add(1, 'a');
-            classUnderTest.Add(2, 'b');
+            dictionary.Add(1, 'a');
+            dictionary.Add(2, 'b');
             
-            int secondKey = classUnderTest.GetFromValue('b');
-            Assert.Equal(secondKey, 2);
+            int secondKey = dictionary.GetFromValue('b');
+            Assert.Equal(2, secondKey);
         }
     }
 }
