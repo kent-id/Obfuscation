@@ -37,14 +37,13 @@ namespace Cryptography.Obfuscation.Modules
 
             int dummyCharacterIndex = 0, insertionIndex = 0;
             while (sb.Length < Settings.MinimumLength)
-            {
-                int hash = Math.Abs(sb.ToString().GetStableHashCode());
-                
+            {   
                 if (strategy == ObfuscationStrategy.Constant)
                 {
                     // Compute insertionIndex in a constant way (using hash).
                     // While allowing the possibility of first and last index.
                     // Note that insertionIndex can exceed sb.Length by 1 (i.e. insert after last character).
+                    int hash = Math.Abs(sb.ToString().GetStableHashCode());
                     insertionIndex = (hash ^ seed) % sb.Length;
                     if ((hash % seed % 3) > (sb.Length / 2)) insertionIndex++;
 
