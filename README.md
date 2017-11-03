@@ -11,7 +11,8 @@ Install
 Install-Package Kent.Cryptography.Obfuscation
 ```
 
-# Obfuscator 2.0
+Obfuscator 2.0
+------
 Obfuscator 2.0 uses a slightly different algorithm compared to version 1.0. New algorithm is introduced to achieve true constant mode across all .NET versions. Prior to version 2.0, constant mode will still achieve expected result as long as you don't change the target framework of your project. If you have been using version 1.0.1 and finds this limitation acceptable, it's safe not to upgrade.
 
 Usage
