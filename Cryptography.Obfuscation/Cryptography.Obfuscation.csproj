@@ -1,7 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFrameworks>netstandard1.2;net35</TargetFrameworks>
-  </PropertyGroup>
+    <Title>Integer Obfuscation</Title>
+    <Authors>Ken Timothy</Authors>
+    <Description>Obfuscation/obfuscator library to encrypt/decrypt id to short strings, similar to YouTube video id.</Description>
 
+    <PackageId>Kent.Cryptography.Obfuscation</PackageId>
+    <PackageVersion>2.0.0</PackageVersion>
+    <PackageProjectUrl>https://www.nuget.org/packages/Kent.Cryptography.Obfuscation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kendtimothy/Obfuscation</RepositoryUrl>
+    <PackageIconUrl>http://www.kendtimothy.com/images/kdt-logo.png</PackageIconUrl>
+    <PackageTags> obfuscation obfuscator cryptography </PackageTags>
+    
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Version 2.0 is a breaking change. Constant mode generated in previous version won't be generated in the same way in this version onwards. This is due to a recent discovery that GetHashCode doesn't guarantee the same result across .NET versions. This is now changed to GetStableHashCode implementation, which in turn helps Obfuscation to achieve true Constant mode, even when your project migrates to another .NET version.</PackageReleaseNotes>
+    <Copyright>GNU Public License v3.0. Feel free to reuse for personal and commercial use.</Copyright>
+  </PropertyGroup>
 </Project>
